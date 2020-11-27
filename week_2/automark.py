@@ -89,6 +89,8 @@ def _passed_local_tests(function, arg_keys):
     for in_, out_ in zip(inputs, outputs):
         args_ = {k: in_[k] for k in arg_keys}
         answer = function(**args_)
+        print('answer: ', answer)
+        print('out: ', out_)
         if not np.allclose(answer, out_, rtol=1e-5, atol=1e-5):
             return False
     return True
